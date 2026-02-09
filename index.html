@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Mi Amor ❤️</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:linear-gradient(135deg,#ff9ad5,#ffd1e8);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.contenedor{
+  background:white;
+  width:90%;
+  max-width:750px;
+  height:90%;
+  border-radius:25px;
+  box-shadow:0 0 25px rgba(0,0,0,0.3);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:30px;
+  text-align:center;
+}
+
+h1,h2{
+  margin-bottom:15px;
+}
+
+#imagenReaccion{
+  width:260px;
+  border-radius:15px;
+  margin:20px auto;
+  display:block;
+}
+
+.botones{
+  position:relative;
+  width:100%;
+  height:120px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:80px;
+}
+
+button{
+  padding:15px 35px;
+  font-size:22px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#si{
+  background:#ff3b7b;
+  color:white;
+}
+
+#no{
+  background:#aaa;
+}
+
+img{
+  max-width:280px;
+  border-radius:15px;
+  margin:15px;
+}
+
+.oculto{
+  display:none;
+}
+
+#super{
+  font-size:45px;
+  color:#ff3b7b;
+  margin-bottom:15px;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<!-- PREGUNTA -->
+<div id="pregunta">
+
+  <h1 id="textoPregunta">¿Quieres ser mi San Valentín? 💖</h1>
+
+  <img id="imagenReaccion"
+src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dmpib3lmcGJoZWV4NngxODNtcHZzc3M0Ym5wbmg5MXlhdmp6NWVrcSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/qFmdpUKAFZ6rMobzzu/giphy.gif">
+
+
+  <div class="botones">
+    <button id="si" onclick="aceptar()">SÍ 💕</button>
+    <button id="no" onclick="rechazar()">NO 😢</button>
+  </div>
+
+</div>
+
+<!-- MENSAJE -->
+<div id="mensaje" class="oculto">
+
+  <div id="super">¡¡MUYYYY FELIIIIIIII COMO UNA LOMBRIZZZ 🐛🐛!! 😍🔥</div>
+
+  <h2>Siempre lo supe mi amooor, nunca lo dudee 🙈💗💗</h2>
+
+  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXdkMWpvbjhkYXA4ampiem56aHJvenoydDk3MTIxMWhpMDMwZmk3NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lv2VhwHrt6ljhvZ6LF/giphy.gif">
+
+  <br>
+
+  <button onclick="mostrarCarta()">Dale click aqui amoor 💌</button>
+
+</div>
+
+<!-- CARTA -->
+<div id="carta" class="oculto cartaBonita">
+
+  <h2>💗 Para mi chinita linda 💗</h2>
+
+  <div class="decoracion">💞 💖 💕 💗 💓 💝</div>
+
+  <p class="textoCarta">
+
+    Holaa mi amoor 💗💕💗 <br><br>
+
+    Noo sabes lo inmensamente feliz que me hace saber que sí quieres pasar conmigo este San Valentín.
+    aunque no era sorpresa 🙈, no sabes lo feliz que me haces cada dia mi amoorr. <br><br>
+
+    Te amoo con todoo mi corazoncito de pollo y créeme que siempre siempree lo haree.
+    Eres lo más bonito de mi vida, iluminas cada díaa, cada segundoo, cada minutoo, cada momento que paso contigo. <br><br>
+
+    Son de mis momentos más especiales y favoritos.
+    Estoy tan orgulloso de ti, y lo estoy desde el dia 1 mi niña preciosa <br><br>
+
+    Siempre estaré para ti mi niña hermosaa, sin importar cómo estemos, sin importar la hora.
+    Yo siempre, SIEMPREEE, estaré para ti, mi princesita de cachetitos hermosos. 💖✨
+
+  </p>
+
+  <div class="decoracion">🌸 🌷 🌹 🌺 🌼 🌸</div>
+
+  <img src="juntos.jpg" class="fotoCarta">
+
+</div>
+
+</div>
+
+
+<script>
+
+let intento = 0;
+let tamaño = 22;
+
+const frases = [
+  "¿Estás segura amor? 👀",
+  "¿Muy segura? 😭💔",
+  "Amor última oportunidad, ok? 😭😭",
+  "Por favor di que sí 😭🙏",
+  "¿Es enserio?😵❤️",
+  "Amorr en verdad estas diciendo que no? 😩💕",
+  "YARLOTH YAMILETH FUENTES GRANOBLE 😡😡😡",
+  "Me rompiste 💔"
+];
+
+const textosNo = [
+  "NO 😢",
+  "NOOO 😠",
+  "QUE NOOOO 😡😡",
+  "no 🥺",
+  "NO 😤",
+  "nooo 😞",
+  "NOOO 😩",
+  "ya no 😭👊"
+];
+
+const textosSi = [
+  "SÍ 💗",
+  "SIII 😍",
+  "SUPERRR SÍ 🔥😻",
+  "SIEMPRE SÍ ❤️💋",
+  "OBVIO SÍ 💖",
+  "MI AMORR SÍ 🥰",
+  "SÍ PARA SIEMPRE 💍❤️‍🩹"
+];
+const imagenes = [
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bzY0NG1wNzJ5MHdyNzlwMjRzZzMwcHd4cm84NmZqejQ5MWhuMDRlNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/4w6g6yOWJYtm8/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3a2JrdmM1bjh5YWZ2anZ1N3V1N21sem13eXZtOGd1aDIzMW1mOHEyYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/HfFccPJv7a9k4/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3a2JrdmM1bjh5YWZ2anZ1N3V1N21sem13eXZtOGd1aDIzMW1mOHEyYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8TT8VjZTZGWQw/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZjE1cThuN2o0aXFrdHZuMHJlcXE0MGc2dDNqeWdvaGQ5cm9wdjhsZiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OOezqqxPB8aJ2/giphy.gif",
+  "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3bzY0NG1wNzJ5MHdyNzlwMjRzZzMwcHd4cm84NmZqejQ5MWhuMDRlNCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ZebTmyvw85gnm/giphy.gif",
+  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmtqd2lhNDFtNXB1dHZhcHYwdmZzMTkyc2p4OWpsY2g3NG43dmp0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/25f4aLHYAMpfG3M0Om/giphy.gif",
+  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2dsemtxazluczBiYWtnNGtjbHU5Yjg0OGN5OTI5a3ZjZ3gyZHo2NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cmvG11YwIVob8XlJDo/giphy.gif",
+  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTVtazBkYnZxNnI3ZWN6eWpyejNmb3Q1amNhcXl5a3EybzY0Mm9hciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/29bKyyjDKX1W8/giphy.gif"
+];
+
+
+function rechazar(){
+ intento++;
+
+  // Cambiar texto
+  if(intento <= frases.length){
+    document.getElementById("textoPregunta").innerText = frases[intento-1];
+  }
+
+  // Cambiar imagen
+  let img = document.getElementById("imagenReaccion");
+
+  if(intento <= imagenes.length){
+    img.src = imagenes[intento-1];
+    img.style.display = "block";
+  }
+
+  // Agrandar SI
+  tamaño += 8;
+let btnSi = document.getElementById("si");
+btnSi.style.fontSize = tamaño + "px";
+
+// Cambiar texto del SI
+if(intento <= textosSi.length){
+  btnSi.innerText = textosSi[intento-1];
+}
+
+// Cambiar texto del NO
+let btnNo = document.getElementById("no");
+
+if(intento <= textosNo.length){
+  btnNo.innerText = textosNo[intento-1];
+}
+
+  // Mover NO aleatoriamente
+  let no = document.getElementById("no");
+
+  let x = Math.random() * 70 + 5; // %
+  let y = Math.random() * 50 + 20; // %
+
+  no.style.position = "absolute";
+  no.style.left = x + "%";
+  no.style.top = y + "%";
+
+  // Final
+  if(intento >= frases.length){
+    no.style.display="none";
+    document.getElementById("si").innerText="SÍÍÍ 💖🔥";
+  }
+
+}
+
+function aceptar(){
+
+  document.getElementById("pregunta").classList.add("oculto");
+  document.getElementById("mensaje").classList.remove("oculto");
+
+}
+
+function mostrarCarta(){
+
+  document.getElementById("mensaje").classList.add("oculto");
+  document.getElementById("carta").classList.remove("oculto");
+
+}
+
+</script>
+
+</body>
+</html>
